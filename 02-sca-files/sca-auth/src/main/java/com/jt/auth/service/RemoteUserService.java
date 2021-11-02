@@ -17,4 +17,9 @@ public interface RemoteUserService {
     @GetMapping("/user/permission/{userId}")
     List<String> selectUserPermissions(
             @PathVariable("userId") Long userId);
+
+
+//    public static void main(String[] args) {
+//        System.out.println("aldjfkadaldjaldakjdlad");
+//    }
 }
