@@ -1,0 +1,41 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: sca-resource-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yml
+    sentinel:
+      transport:
+        dashboard: localhost:8180
+      eager: true
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: router01
+          uri: lb://sca-resource
+          predicates:
+            - Path=/sca/resource/upload/**
+          filters:
+            - StripPrefix=1
+        - id: router02
+          uri: lb://sca-auth
+          predicates:
+            #- Path=/auth/login/** 没用jwt,oauth2之前的写法
+            - Path=/auth/oauth/**
+          filters:
+            - StripPrefix=1
+      globalcors: #跨域配置(写到配置文件的好处是可以将其配置写到配置中心)
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods: "*"
+            allowCredentials: true

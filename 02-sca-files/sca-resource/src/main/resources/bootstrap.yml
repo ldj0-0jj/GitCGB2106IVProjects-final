@@ -1,0 +1,24 @@
+server:
+  port: 8881
+spring:
+  application:
+    name: sca-resource
+  servlet:
+    multipart:
+      max-file-size: 100MB #控制上传文件的大小
+      max-request-size: 110MB #请求数据大小
+
+  resources: #localhost:8881/app.png
+    static-locations: file:g:/uploads #静态资源的存储目录,默认是resources/static
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yml
+#下面的这个几个配置是自己定义的,后续会在相关类中通过@Value注解进行读取
+jt:
+  resource:
+    path: g:/uploads  #设计上传文件存储的根目录(后续要写到配置文件)
+    host: http://localhost:8881/ #定义上传文件对应的访问服务器

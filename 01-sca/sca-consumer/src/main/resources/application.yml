@@ -1,0 +1,17 @@
+server:
+  port: 8090  #默认为8080
+spring:
+  application:
+    name: sca-consumer #假如做服务注册，必须写
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848  #nacos server 地址
+    sentinel:
+      transport:
+        dashboard: localhost:8180 #sentinel 控制面板的地址
+        #port: 8719  #sentinel 客户端端口
+      web-context-unify: false #关闭url聚合(不让所有url都聚合到context下)
+feign:
+  hystrix:
+    enabled: true  #开启feign方式调用时,服务调用超时等问题

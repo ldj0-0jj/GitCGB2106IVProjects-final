@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上载演示</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<form id="fileForm"
+      method="post"
+      enctype="multipart/form-data"
+      onsubmit="return doUpload()">
+    <div>
+        <label>上传文件
+            <input id="uploadFile" type="file" name="uploadFile">
+        </label>
+    </div>
+    <button type="submit">上传文件</button>
+</form>
+</body>
+<script>
+    //jquery代码的表单提交事件
+    function doUpload(){
+        debugger //前端debug方式(一定要打开浏览器控制台窗口)
+        //获得用户选中的所有图片(获得数组)
+        let files=
+            document.getElementById("uploadFile").files;
+        if(files.length>0){
+            //获得用户选中的唯一图片(从数组中取出)
+            let file=files[0];
+            //开始上传这个图片
+            //由于上传代码比较多,不想和这里其它代码干扰,所以定义一个方法调用
+            upload(file);
+        }
+        //阻止表单提交效果
+        return false;
+    };
+    // 将file上传到服务器的方法
+    function upload(file){
+        //定义一个表单(axios中提供的表单对象)
+        let form=new FormData();
+        //将文件添加到表单中
+        form.append("uploadFile",file);
+        //异步提交(现在是提交到网关)
+        //let url="http://localhost:8881/resource/upload/"
+        let url="http://localhost:9000/sca/resource/upload/";
+        //获取登录后,存储到浏览器客户端的访问令牌
+        let token=localStorage.getItem("accessToken");
+        //发送请求时,携带访问令牌
+        axios.post(url,form,{headers:{"Authorization":"Bearer "+token}})
+            .then(function (response){
+                alert("upload ok")
+                console.log(response.data);
+            })
+            .catch(function (e){//失败时执行catch代码块
+                //debugger
+                if(e.response.status==401){
+                    alert("请先登录");
+                    location.href="/login-sso.html";
+                }else if(e.response.status==403){
+                    alert("您没有权限")
+                }else if(e.response.status==429){
+                    alert("上传太频繁了")
+                }
+                console.log("error",e);
+            })
+    }
+</script>
+</html>

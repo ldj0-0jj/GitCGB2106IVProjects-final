@@ -1,0 +1,4 @@
+# Project exclude paths
+/02-sca-files/sca-auth/target/
+/02-sca-files/sca-auth1/target/
+/02-sca-files/sca-system/target/

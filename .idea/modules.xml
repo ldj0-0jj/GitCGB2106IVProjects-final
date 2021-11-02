@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01-sca/01-sca.iml" filepath="$PROJECT_DIR$/01-sca/01-sca.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02-sca-files/02-sca-files.iml" filepath="$PROJECT_DIR$/02-sca-files/02-sca-files.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-sca-redis/03-sca-redis.iml" filepath="$PROJECT_DIR$/03-sca-redis/03-sca-redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/GitCGB2106IVProjects-final.iml" filepath="$PROJECT_DIR$/.idea/GitCGB2106IVProjects-final.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01-sca/sca-basic/javase/javase.iml" filepath="$PROJECT_DIR$/01-sca/sca-basic/javase/javase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02-sca-files/sca-auth/sca-auth.iml" filepath="$PROJECT_DIR$/02-sca-files/sca-auth/sca-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02-sca-files/sca-auth1/sca-auth1.iml" filepath="$PROJECT_DIR$/02-sca-files/sca-auth1/sca-auth1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01-sca/sca-basic/sca-basic.iml" filepath="$PROJECT_DIR$/01-sca/sca-basic/sca-basic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01-sca/sca-consumer/sca-consumer.iml" filepath="$PROJECT_DIR$/01-sca/sca-consumer/sca-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01-sca/sca-gateway/sca-gateway.iml" filepath="$PROJECT_DIR$/01-sca/sca-gateway/sca-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-sca-redis/sca-jedis/sca-jedis.iml" filepath="$PROJECT_DIR$/03-sca-redis/sca-jedis/sca-jedis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01-sca/sca-provider/sca-provider.iml" filepath="$PROJECT_DIR$/01-sca/sca-provider/sca-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02-sca-files/sca-resource/sca-resource.iml" filepath="$PROJECT_DIR$/02-sca-files/sca-resource/sca-resource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02-sca-files/sca-resource-gateway/sca-resource-gateway.iml" filepath="$PROJECT_DIR$/02-sca-files/sca-resource-gateway/sca-resource-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02-sca-files/sca-resource-ui/sca-resource-ui.iml" filepath="$PROJECT_DIR$/02-sca-files/sca-resource-ui/sca-resource-ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02-sca-files/sca-system/sca-system.iml" filepath="$PROJECT_DIR$/02-sca-files/sca-system/sca-system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-sca-redis/sca-template/sca-template.iml" filepath="$PROJECT_DIR$/03-sca-redis/sca-template/sca-template.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01-sca/sca-basic/springboot/springboot.iml" filepath="$PROJECT_DIR$/01-sca/sca-basic/springboot/springboot.iml" />
+    </modules>
+  </component>
+</project>

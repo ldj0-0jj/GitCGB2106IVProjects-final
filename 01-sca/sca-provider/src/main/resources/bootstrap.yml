@@ -1,0 +1,45 @@
+#服务端口
+#server.port=8010
+#服务名
+#spring.application.name=sca-provider
+#服务注册和发现的地址
+#spring.cloud.nacos.discovery.server-addr=127.0.0.1:8848
+server:
+  port: 8081
+#  tomcat:
+#    threads:
+#      max: 300
+spring:
+  application:
+    name: sca-provider  #服务名
+  cloud:
+    nacos: #服务启动时会向nacos发送心跳包(5秒一次)
+      discovery: #服务的注册和发现
+        server-addr: localhost:8848 #nacos server
+      config: #服务配置(将可能经常变化的数据写到配置中心)
+        server-addr: localhost:8848
+        file-extension: yml  #配置中心指定的配置信息格式的扩展名
+        namespace: 42a6875b-4069-4443-8e30-6db10dc13810
+        group: DEV_GROUP_51
+        shared-configs[0]: #共享配置,0代表下标
+             data-id: app-public-dev.yml
+             refresh: true
+#       shared-configs[1]:
+#             data-id: app-public-xxx.yml
+#             refresh: true
+#日志配置
+#logging:
+#  level:
+#    com.cy: error
+#  file:
+#    path: g:/logs   #日志输出到文件的路径,默认文件名为spring.log
+#  pattern:
+#    console: '%-5level %msg %n'
+#    file: '%d %-5level %thread %logger %msg %n'
+#其中:
+# %d 表示日期时间
+# %-5level 日志级别
+# %thread 线程名
+# %logger 日志输出方(哪个类中输出的日志)
+# %msg 具体的日志信息
+# %n  换行

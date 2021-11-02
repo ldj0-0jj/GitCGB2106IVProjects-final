@@ -1,0 +1,28 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: sca-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8180
+        #port: 8719 #假如端口被占用会递增
+      eager: true #true表示关闭懒加载,即服务启动时则与sentinel控制台进行通讯
+    gateway:
+      discovery:
+        locator:
+          enabled: true  #开启通过服务注册中心的serviceId创建路由
+      routes:
+        - id: route01
+          ##uri: http://localhost:8081/
+          uri: lb://sca-provider # lb为服务前缀，不能随意写
+          predicates: ###匹配规则 (谓词对象,定义请求映射规则,会有一些XxxHandlerMapping调用)
+            - Path=/nacos/provider/echo/**
+            #- After=2021-09-23T09:59:59.789+08:00[Asia/Shanghai]
+            #- Header=X-Request-Id, \d+
+          filters: #gateway中的局部过滤器 (Xxx Web Handler对象调用此过滤器)
+            - StripPrefix=1 #转发之前去掉path中第一层路径，例如nacos

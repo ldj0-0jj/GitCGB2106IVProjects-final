@@ -1,0 +1,20 @@
+spring:
+  datasource: #默认配置的是HikariDataSource,应用的是HikariCP链接池(HikariPool)
+    url: jdbc:mysql:///blog?serverTimezone=Asia/Shanghai&characterEncoding=utf8
+    username: root
+    password: root
+#redis 集群配置
+  redis:
+    cluster: #redis 集群配置
+      nodes: 192.168.126.129:8010,192.168.126.129:8011,192.168.126.129:8012,192.168.126.129:8013,192.168.126.129:8014,192.168.126.129:8015
+      max-redirects: 3 #最大跳转次数
+    timeout: 5000 #超时时间
+    database: 0
+    jedis: #连接池
+      pool:
+        max-idle: 8
+        max-wait: 0
+#日志配置
+logging:
+  level:
+    com.jt: debug

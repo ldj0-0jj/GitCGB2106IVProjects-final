@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="sca-template" />
+        <module name="sca-gateway" />
+        <module name="sca-jedis" />
+        <module name="sca-auth1" />
+        <module name="springboot" />
+        <module name="sca-resource-gateway" />
+        <module name="sca-resource" />
+        <module name="sca-consumer" />
+        <module name="sca-system" />
+        <module name="sca-provider" />
+        <module name="sca-auth" />
+        <module name="javase" />
+        <module name="sca-resource-ui" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="01-sca" target="8" />
+      <module name="02-sca-files" target="8" />
+      <module name="03-sca-redis" target="8" />
+      <module name="javase" target="8" />
+      <module name="sca-auth" target="8" />
+      <module name="sca-auth1" target="8" />
+      <module name="sca-basic" target="8" />
+      <module name="sca-consumer" target="8" />
+      <module name="sca-gateway" target="8" />
+      <module name="sca-jedis" target="8" />
+      <module name="sca-provider" target="8" />
+      <module name="sca-resource" target="8" />
+      <module name="sca-resource-gateway" target="8" />
+      <module name="sca-resource-ui" target="8" />
+      <module name="sca-system" target="8" />
+      <module name="sca-template" target="8" />
+      <module name="springboot" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,12 @@
+server:
+  port: 8071
+spring:
+  application:
+    name: sca-auth
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yml

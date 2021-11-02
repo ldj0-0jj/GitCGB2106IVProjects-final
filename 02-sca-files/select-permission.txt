@@ -1,0 +1,29 @@
+#基于用户名获取用户信息(基于用户名查询用户信息)
+select * from tb_users where username='admin'; #id=1
+
+#查询用户权限-方案1(单表多次查询)
+#基于用户id获取用户角色
+select role_id from tb_user_roles where user_id=1;
+#基于角色id获取菜单id
+select menu_id from tb_role_menus where role_id=1;#1,2,3
+#基于菜单id获取菜单对应的权限标识
+select permission from tb_menus where id in (1,2,3);
+
+#查询用户权限-方案2(多表嵌套查询）
+select permission
+from tb_menus
+where id in (select menu_id
+            from tb_role_menus
+             where role_id=(
+                select role_id
+                from tb_user_roles
+                where user_id=1
+             ));
+
+#查询用户权限-方案3(多表关联查询）
+select distinct m.permission
+from tb_user_roles ur join tb_role_menus rm
+     on ur.role_id=rm.role_id
+     join tb_menus m
+     on rm.menu_id=m.id
+where ur.id=1 #user id
