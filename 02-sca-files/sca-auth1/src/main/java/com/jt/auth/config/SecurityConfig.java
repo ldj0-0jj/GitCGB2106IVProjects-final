@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -84,14 +85,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         };
     }
     public AuthenticationFailureHandler failureHandler(){
-        return (request,response,authenticationException)->{
-            //构建map对象封装到要响应到客户端的数据
-            Map<String,Object> map = new HashMap<>();
-            map.put("state", "500");
-            map.put("message", "login error");
-            //将map对象转换为json格式字符串并写到客户端
-            writeJsonToClient(response, map);
+        return new AuthenticationFailureHandler() {
+            @Override
+            public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
+
+            }
         };
+//        return (request,response,authenticationException)->{
+//            //构建map对象封装到要响应到客户端的数据
+//            Map<String,Object> map = new HashMap<>();
+//            map.put("state", "500");
+//            map.put("message", "login error");
+//            //将map对象转换为json格式字符串并写到客户端
+//            writeJsonToClient(response, map);
+//        };
     }
 
     private void writeJsonToClient(
